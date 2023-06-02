@@ -14,15 +14,31 @@ body {
   margin: 0;
   height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
+  align-items: left;
+	flex-wrap: wrap;
+}
+
+.card {
+  font-family: comic sans ms;
+	margin: 3em;
+	background-color: #bee;
+	border: 2px solid #F88;
+	max-width: 20em;
+	height: 18em;
+}
+
+.card-contents {
+	margin: 2em;
 }
 
 .container {
   position: relative;
-  height: 1642px;
-  width: 648px;
+  height: 17em;
+  max-height: 100%;
+  width: 15em;
   border: 2px solid white;
+	margin: 3em;
 }
 .container .img {
   position: absolute;
@@ -30,7 +46,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: 900px 100%;
+  background-size: 17em 100%;
 }
 .container .background-img {
   background-image: url("./ben.png");
@@ -61,14 +77,16 @@ body {
   appearance: none;
   width: 6px;
   height: 648px;
+  max-height: 100%;
   background: white;
   cursor: pointer;
 }
 .container .slider-button {
   pointer-events: none;
   position: absolute;
-  width: 30px;
-  height: 30px;
+  width: 2em;
+  height: 2em;
+	font-size: 1em;
   border-radius: 50%;
   background-color: white;
   left: calc(10% - 18px);
@@ -86,12 +104,21 @@ body {
 
   </head>
 <body>
+	<div class='card'>
+		<div class='card-contents'>
+			<p class='exclamation'>Remember, Ben!</p>
+			<p>With great power comes great responsibility! Use all your new 7-year-old powers for good.</p>
+			<p>Happy 7th birthday,</p>
+			<p class='signature'> Uncle Ray</p>
+		</div>
+	</div>
   <div class='container'>
     <div class='img background-img'></div>
     <div class='img foreground-img'></div>
     <input type="range" min="1" max="100" value="10" class="slider" name='slider' id="slider">
     <div class='slider-button'>&#128375;</div>
   </div>
+	<div> </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 
   <script>
@@ -102,5 +129,6 @@ body {
             // Update the position of the slider button
             $('.slider-button').css('left', `calc(${sliderPos}% - 18px)`)
         });
+
   </script>
 </body>
